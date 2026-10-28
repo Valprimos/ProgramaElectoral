@@ -29,3 +29,4 @@ main{padding:2rem 6vw 6rem;max-width:1100px}
 #n29,#metodo{margin-top:4rem}button:focus-visible,.p:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .bal{border-left:4px solid var(--ink);padding-left:1rem;margin:1rem 0;font-size:.95rem}.bal p{margin:.4rem 0}
+.full{margin-top:3rem;border-top:3px solid var(--ink);padding-top:1.5rem}.full input,.full select{font:inherit;padding:.5rem .7rem;margin:0 .5rem .6rem 0;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:.4rem;max-width:100%}.full input{width:min(32rem,100%)}.it{border-top:1px solid var(--line);padding:.8rem 0}.it p{margin:0 0 .3rem}

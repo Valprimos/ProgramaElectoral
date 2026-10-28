@@ -17,7 +17,22 @@ const r=document.createElement("button");r.textContent="Revelar todas";r.onclick
 el.p.filter(x=>filt=="all"||x.e==filt).forEach(x=>{const d=document.createElement("div");d.className="p";d.tabIndex=0;d.dataset.e=x.e;
 d.innerHTML=`<h3>${x.t}</h3><div class="stamp s-${x.e}">?</div><p class="n">${x.n}<br><span class="src">Fuente: ${x.f}</span> ${x.v?"":'<span class="todo">· por contrastar</span>'}</p>`;
 const t=()=>{d.classList.toggle("open");d.querySelector(".stamp").textContent=d.classList.contains("open")?L[x.e]:"?"};
-d.onclick=t;d.onkeydown=e=>{if(e.key=="Enter"||e.key==" "){e.preventDefault();t()}};P.append(d)})}
+d.onclick=t;d.onkeydown=e=>{if(e.key=="Enter"||e.key==" "){e.preventDefault();t()}};P.append(d)});if(el.prog)full(P,el.prog)}
 CANDIDATOS.forEach(x=>{const d=document.createElement("div");d.className="c";d.append(badge(x.p));d.insertAdjacentHTML("beforeend",`<h3>${x.n}</h3><p class=mut>${x.s}</p>`);$("#cands").append(d)});
 const doc=ELECCIONES.filter(e=>e.p.length).length;$("#cob").textContent=`Cobertura actual: ${doc} de ${ELECCIONES.length} elecciones con promesas documentadas.`;
 show(ELECCIONES.map(e=>e.p.length>0).lastIndexOf(true));
+
+ELECCIONES.find(e=>e.y=="2023").prog=PROG2023;
+function full(P,G){const w=document.createElement("section");w.className="full";
+w.innerHTML=`<h3>Programa completo: ${G.items.length} puntos</h3><p class="mut">${G.fuente}. Todos pendientes de evaluar.</p>`;
+const q=document.createElement("input");q.type="search";q.placeholder="Buscar en el programa (vivienda, pensiones, sanidad…)";q.setAttribute("aria-label","Buscar en el programa");
+const sb=document.createElement("select");sb.setAttribute("aria-label","Bloque");sb.innerHTML='<option value="">Todos los bloques</option>'+Object.entries(G.bloques).map(([k,v])=>`<option value="${k}">Bloque ${k}. ${v}</option>`).join("");
+const sk=document.createElement("select");sk.setAttribute("aria-label","Tipo");sk.innerHTML='<option value="">Medidas y párrafos</option><option value="m">Solo medidas</option><option value="p">Solo párrafos</option>';
+const cnt=document.createElement("p");cnt.className="mut";const ul=document.createElement("div");const more=document.createElement("button");more.textContent="Mostrar más";
+let lim=40,res=[];
+function ren(){const s=q.value.trim().toLowerCase();res=G.items.filter(i=>(!sb.value||i.b==sb.value)&&(!sk.value||i.k==sk.value)&&(!s||i.t.toLowerCase().includes(s)||i.s.toLowerCase().includes(s)));
+cnt.textContent=res.length+" puntos";ul.textContent="";
+res.slice(0,lim).forEach(i=>{const d=document.createElement("div");d.className="it";const t=document.createElement("p");t.textContent=i.t;const m=document.createElement("span");m.className="src";m.textContent="Bloque "+i.b+(i.s?" · "+i.s:"")+" · p. "+i.p+(i.k=="p"?" · párrafo":"");const g=document.createElement("span");g.className="todo";g.textContent="Pendiente de evaluar";d.append(t,m,document.createElement("br"),g);ul.append(d)});
+more.style.display=res.length>lim?"":"none"}
+[q,sb,sk].forEach(x=>x.oninput=()=>{lim=40;ren()});more.onclick=()=>{lim+=60;ren()};
+w.append(q,sb,sk,cnt,ul,more);P.append(w);ren()}
