@@ -18,10 +18,17 @@ const ELECCIONES=[
 {y:"2011",g:"PP",p:[
 {t:"No subir los impuestos",e:"ko",n:"Subida del IRPF aprobada en diciembre de 2011.",f:"Real Decreto-ley 20/2011",v:false},
 {t:"Reformar el mercado laboral",e:"ok",n:"Reforma de 2012.",f:"Ley 3/2012",v:false}]},
-{y:"2015",g:"PP",p:[]},{y:"2016",g:"PP",p:[]},
+{y:"2015",g:"PP",p:[]},{y:"2016",g:"PP",nota:"Gobernó el PP hasta la moción de censura de junio de 2018, que llevó a Sánchez (PSOE) a la Moncloa.",p:[]},
 {y:"2019 abril",g:"PSOE",p:[{t:"Derogar la reforma laboral",e:"par",n:"La reforma de 2021 retocó la de 2012 sin derogarla entera.",f:"Real Decreto-ley 32/2021",v:false}]},
-{y:"2019 nov.",g:"PSOE",p:[]},
-{y:"2023",g:"PP",p:[],nota:"Ganó en escaños el PP; gobernó el PSOE tras la investidura de Sánchez."}];
+{y:"2019 nov.",g:"PSOE",gob:"PSOE y Unidas Podemos (coalición)",p:[]},
+{y:"2023",g:"PSOE",gob:"PSOE y Sumar (coalición)",nota:"Ganó en escaños el PP, pero gobierna Sánchez tras la investidura de noviembre de 2023. Balance al cierre de la legislatura (disolución de las Cortes el 5-10-2026).",
+bal:[
+{t:"Pactocheck de Newtral (julio de 2026), sobre 50 compromisos de los pactos de investidura, no del programa completo: 7 cumplidos, 27 en progreso, 11 pendientes y 5 incumplidos.",f:"Newtral, Pactocheck"},
+{t:"Educación: de 22 promesas de los programas del PSOE de 2019 y 2023, 18 no alcanzan un cumplimiento pleno (81,8 %).",f:"Magisnet, balance cerrado el 20-10-2026"}],
+p:[
+{t:"Construir 183.000 viviendas públicas de alquiler asequible",e:"ko",n:"Se han entregado unas 47.000 en la legislatura según eldiario.es (49.000 desde 2021 según El Español). El Ministerio no publica un balance de viviendas terminadas.",f:"eldiario.es (11-10-2026); El Español (22-04-2026); Maldita.es",v:true},
+{t:"Bajar la jornada legal a 37,5 horas semanales sin pérdida de salario (pacto PSOE-Sumar)",e:"ko",n:"Llegó al Congreso y fue rechazada, así que no se convirtió en ley.",f:"El Español (06-10-2026); Newtral",v:true},
+{t:"Impulsar un nuevo modelo de financiación autonómica en el plazo de un año",e:"ko",n:"El Español la cuenta entre los compromisos sin culminar al cierre de la legislatura. Falta confirmarlo con una fuente oficial.",f:"El Español (06-10-2026)",v:false}]}];
 const CANDIDATOS=[
 {p:"PSOE",n:"Pedro Sánchez",s:"Programa en elaboración. Incluirá compromisos nuevos y pendientes del de 2023."},
 {p:"PP",n:"Alberto Núñez Feijóo",s:"Programa en elaboración, a cargo de Alma Ezcurra. Aún sin documento completo."},
